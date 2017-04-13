@@ -4,7 +4,6 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="PEncode+"/>
-    <Property name="alwaysOnTop" type="boolean" value="true"/>
     <Property name="resizable" type="boolean" value="false"/>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[400, 400]"/>
@@ -193,6 +192,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Browse"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnEncBrowseActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLblEncWidth">
           <Properties>
@@ -249,6 +251,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Browse"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnEncOutBrowseActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBtnEncode">
           <Properties>
@@ -276,7 +281,7 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTxtlDecInputFldr" max="32767" attributes="0"/>
+                              <Component id="jTxtDecInputFldr" max="32767" attributes="0"/>
                               <Component id="jTxtDecOutputFldr" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -296,7 +301,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLblDecInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTxtlDecInputFldr" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTxtDecInputFldr" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jBtnDecInputBrowse" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -321,7 +326,7 @@
             <Property name="text" type="java.lang.String" value="Input Folder:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTxtlDecInputFldr">
+        <Component class="javax.swing.JTextField" name="jTxtDecInputFldr">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="11" style="0"/>
@@ -349,11 +354,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Browse"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnDecInputBrowseActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBtnDecOutputBrowse">
           <Properties>
             <Property name="text" type="java.lang.String" value="Browse"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnDecOutputBrowseActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBtnDecode">
           <Properties>

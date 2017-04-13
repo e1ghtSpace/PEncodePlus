@@ -4,9 +4,13 @@
  * and open the template in the editor.
  */
 
+import java.awt.HeadlessException;
+import java.io.File;
+import javax.swing.JFileChooser;
+
 /**
  *
- * @author Owner
+ * @author e1ghtSpace
  */
 public class PEncodePlusUI extends javax.swing.JFrame {
 
@@ -40,7 +44,7 @@ public class PEncodePlusUI extends javax.swing.JFrame {
         jBtnEncode = new javax.swing.JButton();
         jPnlDecode = new javax.swing.JPanel();
         jLblDecInput = new javax.swing.JLabel();
-        jTxtlDecInputFldr = new javax.swing.JTextField();
+        jTxtDecInputFldr = new javax.swing.JTextField();
         jLblDecOutput = new javax.swing.JLabel();
         jTxtDecOutputFldr = new javax.swing.JTextField();
         jBtnDecInputBrowse = new javax.swing.JButton();
@@ -53,7 +57,6 @@ public class PEncodePlusUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PEncode+");
-        setAlwaysOnTop(true);
         setResizable(false);
         setSize(new java.awt.Dimension(400, 400));
 
@@ -71,6 +74,11 @@ public class PEncodePlusUI extends javax.swing.JFrame {
 
         jBtnEncBrowse.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jBtnEncBrowse.setText("Browse");
+        jBtnEncBrowse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnEncBrowseActionPerformed(evt);
+            }
+        });
 
         jLblEncWidth.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLblEncWidth.setText("Width:");
@@ -92,6 +100,11 @@ public class PEncodePlusUI extends javax.swing.JFrame {
 
         jBtnEncOutBrowse.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jBtnEncOutBrowse.setText("Browse");
+        jBtnEncOutBrowse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnEncOutBrowseActionPerformed(evt);
+            }
+        });
 
         jBtnEncode.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jBtnEncode.setText("Encode");
@@ -155,8 +168,8 @@ public class PEncodePlusUI extends javax.swing.JFrame {
         jLblDecInput.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLblDecInput.setText("Input Folder:");
 
-        jTxtlDecInputFldr.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jTxtlDecInputFldr.setText("Folder Location");
+        jTxtDecInputFldr.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jTxtDecInputFldr.setText("Folder Location");
 
         jLblDecOutput.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLblDecOutput.setText("Output Folder:");
@@ -165,8 +178,18 @@ public class PEncodePlusUI extends javax.swing.JFrame {
         jTxtDecOutputFldr.setText("Folder Location");
 
         jBtnDecInputBrowse.setText("Browse");
+        jBtnDecInputBrowse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnDecInputBrowseActionPerformed(evt);
+            }
+        });
 
         jBtnDecOutputBrowse.setText("Browse");
+        jBtnDecOutputBrowse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnDecOutputBrowseActionPerformed(evt);
+            }
+        });
 
         jBtnDecode.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jBtnDecode.setText("Decode");
@@ -185,7 +208,7 @@ public class PEncodePlusUI extends javax.swing.JFrame {
                             .addComponent(jLblDecInput))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPnlDecodeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTxtlDecInputFldr)
+                            .addComponent(jTxtDecInputFldr)
                             .addComponent(jTxtDecOutputFldr))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPnlDecodeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -199,7 +222,7 @@ public class PEncodePlusUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPnlDecodeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLblDecInput)
-                    .addComponent(jTxtlDecInputFldr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtDecInputFldr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBtnDecInputBrowse))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPnlDecodeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -267,6 +290,70 @@ public class PEncodePlusUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBtnEncBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEncBrowseActionPerformed
+        // TODO add your handling code here:
+            try
+        {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            int returnValue = fileChooser.showOpenDialog(null);
+
+            jTxtEncFile.setText(fileChooser.getSelectedFile().getAbsolutePath());
+        }
+        catch(HeadlessException ex)
+        {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_jBtnEncBrowseActionPerformed
+
+    private void jBtnEncOutBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEncOutBrowseActionPerformed
+        // TODO add your handling code here:
+                    try
+        {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            int returnValue = fileChooser.showOpenDialog(null);
+
+            jTxtEncOutFloc.setText(fileChooser.getSelectedFile().getAbsolutePath());
+        }
+        catch(HeadlessException ex)
+        {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_jBtnEncOutBrowseActionPerformed
+
+    private void jBtnDecInputBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDecInputBrowseActionPerformed
+        // TODO add your handling code here:
+                    try
+        {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            int returnValue = fileChooser.showOpenDialog(null);
+
+            jTxtDecInputFldr.setText(fileChooser.getSelectedFile().getAbsolutePath());
+        }
+        catch(HeadlessException ex)
+        {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_jBtnDecInputBrowseActionPerformed
+
+    private void jBtnDecOutputBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDecOutputBrowseActionPerformed
+        // TODO add your handling code here:
+                    try
+        {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            int returnValue = fileChooser.showOpenDialog(null);
+
+            jTxtDecOutputFldr.setText(fileChooser.getSelectedFile().getAbsolutePath());
+        }
+        catch(HeadlessException ex)
+        {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_jBtnDecOutputBrowseActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -295,10 +382,8 @@ public class PEncodePlusUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PEncodePlusUI().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new PEncodePlusUI().setVisible(true);
         });
     }
 
@@ -322,11 +407,11 @@ public class PEncodePlusUI extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgressBar;
     private javax.swing.JSeparator jSepDecPrgBar;
     private javax.swing.JSeparator jSepEncDec;
+    private javax.swing.JTextField jTxtDecInputFldr;
     private javax.swing.JTextField jTxtDecOutputFldr;
     private javax.swing.JTextField jTxtEncFile;
     private javax.swing.JTextField jTxtEncHeight;
     private javax.swing.JTextField jTxtEncOutFloc;
     private javax.swing.JTextField jTxtEncWidth;
-    private javax.swing.JTextField jTxtlDecInputFldr;
     // End of variables declaration//GEN-END:variables
 }
