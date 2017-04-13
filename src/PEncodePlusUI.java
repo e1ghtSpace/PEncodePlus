@@ -297,8 +297,9 @@ public class PEncodePlusUI extends javax.swing.JFrame {
             JFileChooser fileChooser = new JFileChooser();
             fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             int returnValue = fileChooser.showOpenDialog(null);
-
-            jTxtEncFile.setText(fileChooser.getSelectedFile().getAbsolutePath());
+            if(returnValue == JFileChooser.APPROVE_OPTION) {
+                jTxtEncFile.setText(fileChooser.getSelectedFile().getAbsolutePath());
+            }
         }
         catch(HeadlessException ex)
         {
@@ -313,8 +314,9 @@ public class PEncodePlusUI extends javax.swing.JFrame {
             JFileChooser fileChooser = new JFileChooser();
             fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             int returnValue = fileChooser.showOpenDialog(null);
-
-            jTxtEncOutFloc.setText(fileChooser.getSelectedFile().getAbsolutePath());
+            if(returnValue == JFileChooser.APPROVE_OPTION) {
+                jTxtEncOutFloc.setText(fileChooser.getSelectedFile().getAbsolutePath());
+            }
         }
         catch(HeadlessException ex)
         {
@@ -329,8 +331,9 @@ public class PEncodePlusUI extends javax.swing.JFrame {
             JFileChooser fileChooser = new JFileChooser();
             fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             int returnValue = fileChooser.showOpenDialog(null);
-
-            jTxtDecInputFldr.setText(fileChooser.getSelectedFile().getAbsolutePath());
+            if(returnValue == JFileChooser.APPROVE_OPTION) {
+                jTxtDecInputFldr.setText(fileChooser.getSelectedFile().getAbsolutePath());
+            }
         }
         catch(HeadlessException ex)
         {
@@ -345,8 +348,9 @@ public class PEncodePlusUI extends javax.swing.JFrame {
             JFileChooser fileChooser = new JFileChooser();
             fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             int returnValue = fileChooser.showOpenDialog(null);
-
-            jTxtDecOutputFldr.setText(fileChooser.getSelectedFile().getAbsolutePath());
+            if(returnValue == JFileChooser.APPROVE_OPTION) {
+                jTxtDecOutputFldr.setText(fileChooser.getSelectedFile().getAbsolutePath());
+            }
         }
         catch(HeadlessException ex)
         {
