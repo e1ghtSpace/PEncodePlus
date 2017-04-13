@@ -295,7 +295,8 @@ public class PEncodePlusUI extends javax.swing.JFrame {
             try
         {
             JFileChooser fileChooser = new JFileChooser();
-            fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            //In future versions of PEncode+, the FILES_AND_DIRECTORIES option should be compatible.
+            fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
             int returnValue = fileChooser.showOpenDialog(null);
             if(returnValue == JFileChooser.APPROVE_OPTION) {
                 jTxtEncFile.setText(fileChooser.getSelectedFile().getAbsolutePath());
